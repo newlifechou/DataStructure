@@ -42,11 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IList.cs" />
+    <Compile Include="ListByArray.cs" />
+    <Compile Include="ListByCircleTwoWay.cs" />
+    <Compile Include="ListByCircleOneWay.cs" />
+    <Compile Include="ListByNodeTwoWay.cs" />
+    <Compile Include="ListByNodeOneWay.cs" />
+    <Compile Include="ListByStaticArray.cs" />
+    <Compile Include="Node.cs" />
+    <Compile Include="NodeStatic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Notice.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

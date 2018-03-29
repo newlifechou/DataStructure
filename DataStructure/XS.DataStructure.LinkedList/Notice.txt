@@ -1,0 +1,1 @@
+﻿默认的RemoveAt，Insert等方法相关的index，都是从0开始。
