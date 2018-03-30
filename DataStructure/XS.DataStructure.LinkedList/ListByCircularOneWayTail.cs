@@ -72,21 +72,24 @@ namespace XS.DataStructure.LinkedList
         public void Insert(int index, T data)
         {
             Node<T> newNode = new Node<T>(data);
-            if (IsEmpty())
+            if (index < 0 || index > length - 1)
+                throw new IndexOutOfRangeException();
+            if (length == 1)
             {
-                tail = newNode;
-                tail.next = tail;
+                newNode.next = tail;
             }
-            int realIndex = index % length;
-            //游标指向头位置
-            Node<T> slider = tail.next;
-            //移动到要插入的前一个位置
-            for (int i = 0; i < realIndex - 1; i++)
+            else
             {
-                slider = slider.next;
+                //游标指向头位置
+                Node<T> slider = tail.next;
+                //移动到要插入的前一个位置
+                for (int i = 0; i < index - 1; i++)
+                {
+                    slider = slider.next;
+                }
+                newNode.next = slider.next;
+                slider.next = newNode;
             }
-            newNode.next = slider.next;
-            slider.next = newNode;
 
             length++;
         }
