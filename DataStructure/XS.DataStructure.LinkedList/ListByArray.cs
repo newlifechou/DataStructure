@@ -38,6 +38,11 @@ namespace XS.DataStructure.LinkedList
 
         public void Insert(int index, T data)
         {
+            if (index < 0 || index > length - 1)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
             for (int i = length - 1; i >= index; i--)
             {
                 //从最后一个元素开始，依次往后移动

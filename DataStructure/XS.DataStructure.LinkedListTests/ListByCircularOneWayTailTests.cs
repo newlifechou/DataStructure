@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 namespace XS.DataStructure.LinkedList.Tests
 {
     [TestClass()]
-    public class ListByCircularOneWayHeadTests
+    public class ListByCircularOneWayTailTests
     {
-        private ListByCircularOneWayHead<int> list;
+        private ListByCircularOneWayTail<int> list;
         [TestInitialize]
         public void Initialize()
         {
-            list = new ListByCircularOneWayHead<int>();
+            list = new ListByCircularOneWayTail<int>();
         }
         [TestMethod()]
         public void AppendTest()
@@ -32,17 +32,6 @@ namespace XS.DataStructure.LinkedList.Tests
         }
 
         [TestMethod()]
-        public void ClearTest()
-        {
-            list.Append(1);
-            list.Append(2);
-            list.Append(3);
-            Assert.AreEqual(3, list.GetLength());
-            list.Clear();
-            Assert.IsTrue(list.IsEmpty());
-        }
-
-        [TestMethod()]
         public void GetDataTest()
         {
             list.Append(10);
@@ -51,8 +40,18 @@ namespace XS.DataStructure.LinkedList.Tests
             Assert.AreEqual(10, list.GetData(0));
             Assert.AreEqual(20, list.GetData(1));
             Assert.AreEqual(30, list.GetData(2));
+        }
 
-
+        [TestMethod()]
+        public void RemoveAtTest()
+        {
+            list.Append(10);
+            list.Append(20);
+            list.Append(30);
+            Assert.AreEqual(3, list.GetLength());
+            list.RemoveAt(1);
+            Assert.AreEqual(30, list.GetData(1));
+            Assert.AreEqual(2, list.GetLength());
         }
 
         [TestMethod()]
@@ -67,7 +66,6 @@ namespace XS.DataStructure.LinkedList.Tests
             Assert.AreEqual(expect1, 5);
             Assert.AreEqual(expect2, 2);
         }
-
         [TestMethod]
         public void InsertOnlyOneTest()
         {
@@ -86,18 +84,5 @@ namespace XS.DataStructure.LinkedList.Tests
             Assert.AreEqual(5, list.GetData(1));
         }
 
-
-
-        [TestMethod()]
-        public void RemoveAtTest()
-        {
-            list.Append(10);
-            list.Append(20);
-            list.Append(30);
-            Assert.AreEqual(3, list.GetLength());
-            list.RemoveAt(1);
-            Assert.AreEqual(30, list.GetData(1));
-            Assert.AreEqual(2, list.GetLength());
-        }
     }
 }

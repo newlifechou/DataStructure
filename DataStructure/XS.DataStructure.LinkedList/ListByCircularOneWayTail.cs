@@ -12,7 +12,7 @@ namespace XS.DataStructure.LinkedList
     /// 没有尾节点
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class ListByCircularOneWayTail<T> : IList<T>
+    public class ListByCircularOneWayTail<T> : IList<T>
     {
         private Node<T> tail;
         private int length;
@@ -140,35 +140,5 @@ namespace XS.DataStructure.LinkedList
             length--;
         }
 
-        public T DeleteAt(int index)
-        {
-            if (IsEmpty())
-                return default(T);
-            int realIndex = index % length;
-            if (length == 1)
-            {
-                T value = tail.data;
-                Clear();
-                return value;
-            }
-
-            //游标指向头位置
-            Node<T> slider = tail.next;
-            //移动到要删除的前一个位置
-            for (int i = 0; i < realIndex - 1; i++)
-            {
-                slider = slider.next;
-            }
-            var deletedNode = slider.next;
-            T currentValue = deletedNode.data;
-            slider.next = deletedNode.next;
-            //如果移除的正好是尾节点的话，重新设定尾结点
-            if (realIndex == length - 1)
-            {
-                tail = slider;
-            }
-            length--;
-            return currentValue;
-        }
     }
 }

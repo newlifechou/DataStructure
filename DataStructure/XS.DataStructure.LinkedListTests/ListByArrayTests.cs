@@ -48,6 +48,23 @@ namespace XS.DataStructure.LinkedList.Tests
             Assert.AreEqual(expect2, 2);
 
         }
+        [TestMethod]
+        public void InsertOnlyOneTest()
+        {
+            list.Append(1);//0
+            list.Insert(0, 5);
+            Assert.AreEqual(2, list.GetLength());
+            Assert.AreEqual(5, list.GetData(0));
+        }
+        [TestMethod]
+        public void InsertOnlyTwo()
+        {
+            list.Append(1);//0
+            list.Append(2);//1
+            list.Insert(1, 5);
+            Assert.AreEqual(3, list.GetLength());
+            Assert.AreEqual(5, list.GetData(1));
+        }
 
         [TestMethod()]
         public void GetDataTest()
