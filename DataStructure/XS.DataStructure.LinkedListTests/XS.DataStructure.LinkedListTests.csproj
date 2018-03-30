@@ -57,7 +57,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="JosephProblemTests.cs" />
-    <Compile Include="ListByLinkedNodeTwoWay.cs" />
+    <Compile Include="ListByLinkedNodeOneWayTest.cs" />
+    <Compile Include="ListByLinkedNodeTwoWayTests.cs" />
     <Compile Include="ListByStaticArrayTests.cs" />
     <Compile Include="ListByArrayTests.cs" />
     <Compile Include="ListByCircularOneWayHeadTests.cs" />

@@ -10,7 +10,7 @@ namespace XS.DataStructure.LinkedList
     /// 单向链表
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class ListByLinkedNodeOneWay<T> : IList<T>
+    public class ListByLinkedNodeOneWay<T> : IList<T>
     {
         private Node<T> head;
         private int length;
@@ -22,25 +22,7 @@ namespace XS.DataStructure.LinkedList
             head.next = null;
         }
 
-        /// <summary>
-        /// 从头部插入
-        /// </summary>
-        /// <param name="data"></param>
-        public void AppendAfterHead(T data)
-        {
-            Node<T> newNode = new Node<T>(data);
-            newNode.next = head.next;
-            head.next = newNode;
-            length++;
-        }
 
-        public void ApppendAfterHead(T data)
-        {
-            Node<T> newNode = new Node<T>(data);
-            newNode.next = head.next;
-            head.next = newNode;
-            length++;
-        }
         public void Append(T data)
         {
             Node<T> newNode = new Node<T>(data);
@@ -66,12 +48,13 @@ namespace XS.DataStructure.LinkedList
             if (index < 0 || index > length)
                 throw new IndexOutOfRangeException();
             //找到Index的位置
-            Node<T> slider = head;
+            Node<T> slider = head.next;
             for (int i = 0; i < index; i++)
             {
                 slider = slider.next;
             }
             return slider.data;
+
         }
 
         public int GetLength()
@@ -84,10 +67,11 @@ namespace XS.DataStructure.LinkedList
         {
             if (index < 0 || index > length)
                 throw new IndexOutOfRangeException();
+
             Node<T> newNode = new Node<T>(data);
             //找到Index前面一个位置
             Node<T> slider = head;
-            for (int i = 0; i < index-1; i++)
+            for (int i = 0; i < index; i++)
             {
                 slider = slider.next;
             }
@@ -107,12 +91,14 @@ namespace XS.DataStructure.LinkedList
                 throw new IndexOutOfRangeException();
             //找到Index前面一个的位置
             Node<T> slider = head;
-            for (int i = 0; i < index - 1; i++)
+            for (int i = 0; i < index; i++)
             {
                 slider = slider.next;
             }
             //这个节点的next指向下一个（要删除）的下一个节点
-            slider.next = slider.next.next;
+            var deletedNode = slider.next;
+            slider.next = deletedNode.next;
+            length--;
         }
 
         public void Print()
