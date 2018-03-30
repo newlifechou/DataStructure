@@ -86,8 +86,15 @@ namespace XS.DataStructure.LinkedList
 
         public bool IsEmpty()
         {
-            return length > 0;
+            return length == 0;
         }
 
+        public void Print()
+        {
+            for (int i = 0; i < length; i++)
+            {
+                Console.Write($"{dataList[i]} ");
+            }
+        }
     }
 }

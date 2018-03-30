@@ -10,12 +10,12 @@ namespace XS.DataStructure.LinkedList
     /// 单向链表
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class ListByNodeOneWay<T> : IList<T>
+    class ListByLinkedNodeOneWay<T> : IList<T>
     {
         private Node<T> head;
         private int length;
 
-        public ListByNodeOneWay()
+        public ListByLinkedNodeOneWay()
         {
             length = 0;
             head = new Node<T>();
@@ -112,7 +112,7 @@ namespace XS.DataStructure.LinkedList
 
         public bool IsEmpty()
         {
-            return length > 0;
+            return length == 0;
         }
 
         public void RemoveAt(int index)
@@ -127,6 +127,11 @@ namespace XS.DataStructure.LinkedList
             }
             //这个节点的next指向下一个（要删除）的下一个节点
             slider.next = slider.next.next;
+        }
+
+        public void Print()
+        {
+            throw new NotImplementedException();
         }
     }
 }

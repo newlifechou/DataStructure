@@ -25,5 +25,10 @@ namespace XS.DataStructure.LinkedList
         int GetLength();
         bool IsEmpty();
 
+        /// <summary>
+        /// 辅助输出看链表是否有问题
+        /// </summary>
+        void Print();
+
     }
 }

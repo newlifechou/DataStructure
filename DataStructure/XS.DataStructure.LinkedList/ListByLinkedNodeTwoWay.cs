@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace XS.DataStructure.LinkedList
 {
-    class ListByCircleTwoWay
+    class ListByLinkedNodeTwoWay
     {
     }
 }

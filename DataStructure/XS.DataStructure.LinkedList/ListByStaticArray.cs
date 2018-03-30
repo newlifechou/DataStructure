@@ -188,7 +188,7 @@ namespace XS.DataStructure.LinkedList
 
         public bool IsEmpty()
         {
-            return length > 0;
+            return length == 0;
         }
 
         public void RemoveAt(int index)
@@ -205,6 +205,11 @@ namespace XS.DataStructure.LinkedList
             dataList[slideCursor].cursor = dataList[deletedCursor].cursor;
             Free(deletedCursor);
             length--;
+        }
+
+        public void Print()
+        {
+            throw new NotImplementedException();
         }
     }
 }

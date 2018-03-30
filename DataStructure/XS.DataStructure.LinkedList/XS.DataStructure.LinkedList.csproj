@@ -43,11 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IList.cs" />
+    <Compile Include="JosephProblem.cs" />
     <Compile Include="ListByArray.cs" />
-    <Compile Include="ListByCircleTwoWay.cs" />
-    <Compile Include="ListByCircleOneWay.cs" />
-    <Compile Include="ListByNodeTwoWay.cs" />
-    <Compile Include="ListByNodeOneWay.cs" />
+    <Compile Include="ListByCircularTwoWay.cs" />
+    <Compile Include="ListByCircularOneWayHead.cs" />
+    <Compile Include="ListByCircularOneWayTail.cs" />
+    <Compile Include="ListByLinkedNodeTwoWay.cs" />
+    <Compile Include="ListByLinkedNodeOneWay.cs" />
     <Compile Include="ListByStaticArray.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="NodeStatic.cs" />

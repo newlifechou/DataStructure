@@ -10,6 +10,8 @@ namespace XS.DataStructure.LinkedList
     {
         static void Main(string[] args)
         {
+
+            Console.Read();
         }
     }
 }
