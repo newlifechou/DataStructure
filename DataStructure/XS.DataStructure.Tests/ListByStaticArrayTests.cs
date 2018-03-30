@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XS.DataStructure.LinkedList.Tests
+namespace XS.DataStructure.Tests
 {
     [TestClass()]
     public class ListByStaticArrayTests

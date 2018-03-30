@@ -74,7 +74,7 @@ namespace XS.DataStructure.LinkedList
             Node<T> newNode = new Node<T>(data);
             if (index < 0 || index > length - 1)
                 throw new IndexOutOfRangeException();
-            if (length == 1)
+            if (length == 0)
             {
                 newNode.next = tail;
             }

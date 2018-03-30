@@ -93,7 +93,7 @@ namespace XS.DataStructure.LinkedList
             Node<T> slider = head;
             for (int i = 0; i < index; i++)
             {
-                slider = slider.next;
+                slider = slider.next;  
             }
             //这个节点的next指向下一个（要删除）的下一个节点
             var deletedNode = slider.next;

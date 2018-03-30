@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{65744ADF-E3C9-48A3-97F5-54E30962D57C}</ProjectGuid>
+    <ProjectGuid>{29785086-E8FC-4EF6-9940-BDF73926A8F7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XS.DataStructure.LinkedListTests</RootNamespace>
-    <AssemblyName>XS.DataStructure.LinkedListTests</AssemblyName>
+    <RootNamespace>XS.DataStructure.StackQueueTests</RootNamespace>
+    <AssemblyName>XS.DataStructure.StackQueueTests</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -56,22 +56,16 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="JosephProblemTests.cs" />
-    <Compile Include="ListByLinkedNodeOneWayTest.cs" />
-    <Compile Include="ListByLinkedNodeTwoWayTests.cs" />
-    <Compile Include="ListByStaticArrayTests.cs" />
-    <Compile Include="ListByArrayTests.cs" />
-    <Compile Include="ListByCircularOneWayHeadTests.cs" />
-    <Compile Include="ListByCircularOneWayTailTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StackByArrayTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XS.DataStructure.LinkedList\XS.DataStructure.LinkedList.csproj">
-      <Project>{9075C338-345A-4AC9-A812-ADA76E1B9966}</Project>
-      <Name>XS.DataStructure.LinkedList</Name>
+    <ProjectReference Include="..\XS.DataStructure.StackQueue\XS.DataStructure.StackQueue.csproj">
+      <Project>{36941DE0-1B9A-45F0-BBEE-6F3C65565CAF}</Project>
+      <Name>XS.DataStructure.StackQueue</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

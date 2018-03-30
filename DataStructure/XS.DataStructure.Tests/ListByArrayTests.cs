@@ -6,17 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XS.DataStructure.LinkedList.Tests
+namespace XS.DataStructure.Tests
 {
     [TestClass()]
-    public class ListByLinkedNodeOneWayTests
+    public class ListByArrayTests
     {
-        private ListByLinkedNodeOneWay<int> list;
+        private ListByArray<int> list;
 
         [TestInitialize]
         public void Initilze()
         {
-            list = new ListByLinkedNodeOneWay<int>();
+            list = new ListByArray<int>();
         }
 
 
@@ -42,8 +42,11 @@ namespace XS.DataStructure.LinkedList.Tests
             list.Append(2);//1插入位置
             list.Append(3);//2
             list.Insert(1, 5);
-            Assert.AreEqual(5, list.GetData(1));
-            Assert.AreEqual(2, list.GetData(2));
+            int expect1 = list.GetData(1);
+            int expect2 = list.GetData(2);
+            Assert.AreEqual(expect1, 5);
+            Assert.AreEqual(expect2, 2);
+
         }
         [TestMethod]
         public void InsertOnlyOneTest()
@@ -78,7 +81,6 @@ namespace XS.DataStructure.LinkedList.Tests
             list.Append(20);
             list.Append(30);
             Assert.AreEqual(3, list.GetLength());
-
             list.RemoveAt(1);
             Assert.AreEqual(30, list.GetData(1));
             Assert.AreEqual(2, list.GetLength());

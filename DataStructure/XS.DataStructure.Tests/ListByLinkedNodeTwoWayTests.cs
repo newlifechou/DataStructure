@@ -6,17 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XS.DataStructure.LinkedList.Tests
+namespace XS.DataStructure.Tests
 {
     [TestClass()]
-    public class ListByCircularOneWayTailTests
+    public class ListByLinkedNodeTwoWayTests
     {
-        private ListByCircularOneWayTail<int> list;
+        private ListByLinkedNodeTwoWay<int> list;
+
         [TestInitialize]
-        public void Initialize()
+        public void Initilze()
         {
-            list = new ListByCircularOneWayTail<int>();
+            list = new ListByLinkedNodeTwoWay<int>();
         }
+
+
         [TestMethod()]
         public void AppendTest()
         {
@@ -29,29 +32,7 @@ namespace XS.DataStructure.LinkedList.Tests
             Assert.AreEqual(1, one);
             Assert.AreEqual(2, two);
             Assert.AreEqual(3, three);
-        }
 
-        [TestMethod()]
-        public void GetDataTest()
-        {
-            list.Append(10);
-            list.Append(20);
-            list.Append(30);
-            Assert.AreEqual(10, list.GetData(0));
-            Assert.AreEqual(20, list.GetData(1));
-            Assert.AreEqual(30, list.GetData(2));
-        }
-
-        [TestMethod()]
-        public void RemoveAtTest()
-        {
-            list.Append(10);
-            list.Append(20);
-            list.Append(30);
-            Assert.AreEqual(3, list.GetLength());
-            list.RemoveAt(1);
-            Assert.AreEqual(30, list.GetData(1));
-            Assert.AreEqual(2, list.GetLength());
         }
 
         [TestMethod()]
@@ -61,10 +42,8 @@ namespace XS.DataStructure.LinkedList.Tests
             list.Append(2);//1插入位置
             list.Append(3);//2
             list.Insert(1, 5);
-            int expect1 = list.GetData(1);
-            int expect2 = list.GetData(2);
-            Assert.AreEqual(expect1, 5);
-            Assert.AreEqual(expect2, 2);
+            Assert.AreEqual(5, list.GetData(1));
+            Assert.AreEqual(2, list.GetData(2));
         }
         [TestMethod]
         public void InsertOnlyOneTest()
@@ -84,5 +63,35 @@ namespace XS.DataStructure.LinkedList.Tests
             Assert.AreEqual(5, list.GetData(1));
         }
 
+        [TestMethod()]
+        public void GetDataTest()
+        {
+            list.Append(10);
+            int expect = list.GetData(0);
+            Assert.AreEqual(expect, 10);
+        }
+
+        [TestMethod()]
+        public void RemoveAtTest()
+        {
+            list.Append(10);
+            list.Append(20);
+            list.Append(30);
+            Assert.AreEqual(3, list.GetLength());
+            list.RemoveAt(1);
+            Assert.AreEqual(30, list.GetData(1));
+            Assert.AreEqual(2, list.GetLength());
+        }
+
+        [TestMethod()]
+        public void ClearTest()
+        {
+            list.Append(1);
+            list.Append(2);
+            list.Append(3);
+            Assert.AreEqual(3, list.GetLength());
+            list.Clear();
+            Assert.IsTrue(list.IsEmpty());
+        }
     }
 }
