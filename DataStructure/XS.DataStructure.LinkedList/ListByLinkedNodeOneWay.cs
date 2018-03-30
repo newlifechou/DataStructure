@@ -79,20 +79,6 @@ namespace XS.DataStructure.LinkedList
             return length;
         }
 
-        public int IndexOf(T data)
-        {
-            if (length < 0)
-                throw new IndexOutOfRangeException();
-            //游标指向第一个元素
-            Node<T> slider = head.next;
-            //扫描全部
-            for (int i = 0; i < length; i++)
-            {
-                if (slider.data.Equals(data))
-                    return i;
-            }
-            return -1;
-        }
 
         public void Insert(int index, T data)
         {

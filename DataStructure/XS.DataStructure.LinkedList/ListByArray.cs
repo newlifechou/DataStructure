@@ -11,7 +11,7 @@ namespace XS.DataStructure.LinkedList
     /// 优点：随机读取
     /// 缺点：插入或者删除都要移动很多元素
     /// </summary>
-    class ListByArray<T> : IList<T>
+    public class ListByArray<T> : IList<T>
     {
         private T[] dataList;
         //线性表存储最大值
@@ -52,16 +52,6 @@ namespace XS.DataStructure.LinkedList
             if (index > length || index < 0)
                 throw new IndexOutOfRangeException();
             return dataList[index];
-        }
-
-        public int IndexOf(T data)
-        {
-            for (int i = 0; i < length; i++)
-            {
-                if (dataList[i].Equals(data))
-                    return i;
-            }
-            return -1;
         }
 
         public void RemoveAt(int index)

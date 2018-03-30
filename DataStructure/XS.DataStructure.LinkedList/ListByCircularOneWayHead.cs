@@ -11,7 +11,7 @@ namespace XS.DataStructure.LinkedList
     /// 不包含头节点
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class ListByCircularOneWayHead<T> : IList<T>
+    public class ListByCircularOneWayHead<T> : IList<T>
     {
         private Node<T> head;
         private int length;
@@ -59,13 +59,11 @@ namespace XS.DataStructure.LinkedList
         /// <returns></returns>
         public T GetData(int index)
         {
-            if (IsEmpty())
+            if (index < 0 || index > length - 1)
                 throw new IndexOutOfRangeException();
             Node<T> slider = head;
-            //优化一下,减少循环次数
-            int realIndex = index % length;
             //移动index次位置
-            for (int i = 0; i < realIndex; i++)
+            for (int i = 0; i < index; i++)
             {
                 slider = slider.next;
             }
@@ -77,32 +75,19 @@ namespace XS.DataStructure.LinkedList
             return length;
         }
 
-        public int IndexOf(T data)
-        {
-            if (IsEmpty())
-                return -1;
-            Node<T> slider = head;
-            for (int i = 0; i < length; i++)
-            {
-                if (slider.data.Equals(data))
-                    return i;
-                slider = slider.next;
-            }
-            return -1;
-        }
 
         public void Insert(int index, T data)
         {
             Node<T> newNode = new Node<T>(data);
-            if (IsEmpty())
-            { head = newNode; }
+            if (index < 0 || index > length - 1)
+            {
+                throw new IndexOutOfRangeException();
+            }
             else
             {
                 Node<T> slider = head;
-                //优化一下,减少循环次数
-                int realIndex = index % length;
-                //移动到位置index-1
-                for (int i = 0; i < realIndex - 1; i++)
+                //找到插入位置的前一个位置
+                for (int i = 0; i < index - 1; i++)
                 {
                     slider = slider.next;
                 }
@@ -124,13 +109,12 @@ namespace XS.DataStructure.LinkedList
 
         public void RemoveAt(int index)
         {
-            if (IsEmpty())
-                return;
+            if (index < 0 || index > length - 1)
+                throw new IndexOutOfRangeException();
+
             Node<T> slider = head;
-            //优化一下,减少循环次数
-            int realIndex = index % length;
-            //移动到位置index-1
-            for (int i = 0; i < realIndex - 1; i++)
+            //找到删除位置的前一个位置
+            for (int i = 0; i < index - 1; i++)
             {
                 slider = slider.next;
             }

@@ -57,6 +57,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="JosephProblemTests.cs" />
+    <Compile Include="ListByArrayTests.cs" />
+    <Compile Include="ListByCircularOneWayHeadTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -149,23 +149,6 @@ namespace XS.DataStructure.LinkedList
             return length;
         }
 
-        public int IndexOf(T data)
-        {
-            if (length == 0)
-                throw new IndexOutOfRangeException();
-            int slideCursor = firstDataNodeCursor;
-            //从头找
-            for (int i = 0; i < length; i++)
-            {
-                if (dataList[slideCursor].data.Equals(data))
-                {
-                    return slideCursor;
-                }
-                slideCursor = dataList[slideCursor].cursor;
-            }
-            return -1;
-        }
-
         public void Insert(int index, T data)
         {
             if (index < 0 || index > length)

@@ -19,7 +19,6 @@ namespace XS.DataStructure.LinkedList
         void Append(T data);
         void Insert(int index, T data);
         T GetData(int index);
-        int IndexOf(T data);
         void RemoveAt(int index);
         void Clear();
         int GetLength();
