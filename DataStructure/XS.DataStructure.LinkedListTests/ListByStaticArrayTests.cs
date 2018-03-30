@@ -11,12 +11,12 @@ namespace XS.DataStructure.LinkedList.Tests
     [TestClass()]
     public class ListByStaticArrayTests
     {
-        private ListByArray<int> list;
+        private ListByStaticArray<int> list;
 
         [TestInitialize]
         public void Initilze()
         {
-            list = new ListByArray<int>();
+            list = new ListByStaticArray<int>();
         }
 
 

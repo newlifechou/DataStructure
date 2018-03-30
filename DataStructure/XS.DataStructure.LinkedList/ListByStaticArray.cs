@@ -11,12 +11,25 @@ namespace XS.DataStructure.LinkedList
     /// 在没有指针或者引用的语言中，通过数组来表示链表
     /// Static Linked List
     /// </summary>
-    class ListByStaticArray<T> : IList<T>
+    public class ListByStaticArray<T> : IList<T>
     {
 
         private NodeStatic<T>[] dataList;
         private int maxSize;
         private int length;
+
+        public ListByStaticArray()
+        {
+            length = 0;
+            maxSize = 100;
+            dataList = new NodeStatic<T>[maxSize];
+            //初始化每个节点
+            for (int i = 0; i < maxSize; i++)
+            {
+                dataList[i] = new NodeStatic<T>();
+            }
+            Initialize();
+        }
 
         //存储可用节点的数组索引
         private int firstFreeNodeCursor = 0;
@@ -69,13 +82,6 @@ namespace XS.DataStructure.LinkedList
         }
 
 
-        public ListByStaticArray()
-        {
-            length = 0;
-            maxSize = 100;
-            dataList = new NodeStatic<T>[maxSize];
-        }
-
         public void AppendToHead(T data)
         {
             //获取分配的空闲位Cursor
@@ -113,8 +119,8 @@ namespace XS.DataStructure.LinkedList
             else
             {
                 int sliderCursor = firstDataNodeCursor;
-                //找到最后一个位置
-                for (int i = 0; i < length; i++)
+                //上回最后一个元素，它的cursor=-1，把它设置为currentCursor
+                for (int i = 0; i < length - 1; i++)
                 {
                     sliderCursor = dataList[sliderCursor].cursor;
                 }
@@ -153,18 +159,27 @@ namespace XS.DataStructure.LinkedList
         {
             if (index < 0 || index > length)
                 throw new IndexOutOfRangeException();
-            int slideCursor = firstDataNodeCursor;
-            //找到index位置的前一个
-            for (int i = 0; i < index - 1; i++)
-            {
-                slideCursor = dataList[slideCursor].cursor;
-            }
             //获取分配的空闲位Cursor
             int currentCursor = Allocate();
             dataList[currentCursor].data = data;
 
-            dataList[currentCursor].cursor = dataList[slideCursor].cursor;
-            dataList[slideCursor].cursor = currentCursor;
+            if (length == 1)
+            {
+                dataList[currentCursor].cursor = firstDataNodeCursor;
+                firstDataNodeCursor = currentCursor;
+            }
+            else
+            {
+                int slideCursor = firstDataNodeCursor;
+                //找到index位置的前一个
+                for (int i = 0; i < index - 2; i++)
+                {
+                    slideCursor = dataList[slideCursor].cursor;
+                }
+
+                dataList[currentCursor].cursor = dataList[slideCursor].cursor;
+                dataList[slideCursor].cursor = currentCursor;
+            }
 
             length++;
         }
@@ -178,15 +193,22 @@ namespace XS.DataStructure.LinkedList
         {
             if (index < 0 || index > length)
                 throw new IndexOutOfRangeException();
-            int slideCursor = firstDataNodeCursor;
-            //找到index前一个位置
-            for (int i = 0; i < index - 1; i++)
+            if (length == 1)
             {
-                slideCursor = dataList[slideCursor].cursor;
+                Initialize();
             }
-            int deletedCursor = dataList[slideCursor].cursor;
-            dataList[slideCursor].cursor = dataList[deletedCursor].cursor;
-            Free(deletedCursor);
+            else
+            {
+                int slideCursor = firstDataNodeCursor;
+                //找到index前一个位置
+                for (int i = 0; i < index - 2; i++)
+                {
+                    slideCursor = dataList[slideCursor].cursor;
+                }
+                int deletedCursor = dataList[slideCursor].cursor;
+                dataList[slideCursor].cursor = dataList[deletedCursor].cursor;
+                Free(deletedCursor);
+            }
             length--;
         }
 
