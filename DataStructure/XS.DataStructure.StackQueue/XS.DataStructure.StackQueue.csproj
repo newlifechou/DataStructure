@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IStack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StackSharedByArray.cs" />
     <Compile Include="StackByArray.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

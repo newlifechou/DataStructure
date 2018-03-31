@@ -47,6 +47,16 @@ namespace XS.DataStructure.StackQueue.Tests
             Assert.IsTrue(stack.IsEmpty());
 
         }
-
+        [TestMethod()]
+        public void ClearTest()
+        {
+            Assert.IsTrue(stack.IsEmpty());
+            stack.Push(3);
+            stack.Push(4);
+            stack.Push(5);
+            Assert.IsFalse(stack.IsEmpty());
+            stack.Clear();
+            Assert.IsTrue(stack.IsEmpty());
+        }
     }
 }

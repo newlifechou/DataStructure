@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XS.DataStructure.Tests
+namespace XS.DataStructure.LinkedList.Tests
 {
     [TestClass()]
     public class ListByLinkedNodeOneWayTests
