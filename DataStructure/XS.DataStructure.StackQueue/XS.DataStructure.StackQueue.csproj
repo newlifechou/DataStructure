@@ -46,6 +46,7 @@
     <Compile Include="Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueByArray.cs" />
+    <Compile Include="QueueByLinkNode.cs" />
     <Compile Include="StackByLinkNode.cs" />
     <Compile Include="StackForAffix.cs" />
     <Compile Include="StackSharedByArray.cs" />

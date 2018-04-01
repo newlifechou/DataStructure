@@ -65,6 +65,7 @@
     <Compile Include="ListByCircularOneWayHeadTests.cs" />
     <Compile Include="ListByCircularOneWayTailTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueByLinkNodeTests.cs" />
     <Compile Include="QueueByArrayTests.cs" />
     <Compile Include="StackByArrayTests.cs" />
     <Compile Include="StackByLinkNodeTests.cs" />
