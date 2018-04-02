@@ -71,6 +71,7 @@
     <Compile Include="StackByLinkNodeTests.cs" />
     <Compile Include="StackForAffixTests.cs" />
     <Compile Include="StackSharedByArrayTests.cs" />
+    <Compile Include="StringTestTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -83,6 +84,10 @@
     <ProjectReference Include="..\XS.DataStructure.StackQueue\XS.DataStructure.StackQueue.csproj">
       <Project>{36941de0-1b9a-45f0-bbee-6f3c65565caf}</Project>
       <Name>XS.DataStructure.StackQueue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XS.DataStructure.String\XS.DataStructure.String.csproj">
+      <Project>{ADAA9DC8-D4A5-49FD-86A8-27DE4492CE39}</Project>
+      <Name>XS.DataStructure.String</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
