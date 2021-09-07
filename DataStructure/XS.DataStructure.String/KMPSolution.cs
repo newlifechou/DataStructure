@@ -40,7 +40,7 @@ namespace XS.DataStructure.String
                 }
                 else
                 {
-                    j = Next(j);
+                    //j = Next(j);
                 }
             }
 

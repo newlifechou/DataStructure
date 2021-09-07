@@ -16,8 +16,5 @@ namespace DataStructure.Tree
         public TreeNodeByFather<T> father;
     }
 
-    public class 
-
-
 
 }
