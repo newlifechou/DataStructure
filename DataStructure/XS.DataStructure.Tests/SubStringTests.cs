@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace XS.DataStructure.String.Tests
 {
     [TestClass()]
-    public class StringTestTests
+    public class SubStringTests
     {
         [TestMethod()]
-        public void IndexViaViolentTest()
+        public void Index()
         {
-            StringTest test = new StringTest();
+            SubString test = new SubString();
 
             string source = "hello world are you ok the brown fox jumps over the lazy dog";
             string pattern1 = "hello";
@@ -22,11 +22,11 @@ namespace XS.DataStructure.String.Tests
             string pattern3 = "fox";
             string pattern4 = "lazy";
             string pattern5 = "dog";
-            Assert.AreEqual(0, test.IndexViaViolent(source, pattern1));
-            Assert.AreEqual(20, test.IndexViaViolent(source, pattern2));
-            Assert.AreEqual(33, test.IndexViaViolent(source, pattern3));
-            Assert.AreEqual(52, test.IndexViaViolent(source, pattern4));
-            Assert.AreEqual(57, test.IndexViaViolent(source, pattern5));
+            Assert.AreEqual(0, test.Index(source, pattern1));
+            Assert.AreEqual(20, test.Index(source, pattern2));
+            Assert.AreEqual(33, test.Index(source, pattern3));
+            Assert.AreEqual(52, test.Index(source, pattern4));
+            Assert.AreEqual(57, test.Index(source, pattern5));
 
         }
     }

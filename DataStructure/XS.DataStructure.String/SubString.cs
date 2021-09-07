@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace XS.DataStructure.String
 {
-    public class StringTest
+    public class SubString
     {
-        public int IndexViaViolent(string source, string pattern)
+        /// <summary>
+        /// 复杂度O(mn)
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="pattern"></param>
+        /// <returns></returns>
+        public int Index(string source, string pattern)
         {
             int sourceCursor = 0;
             int i = sourceCursor, j = 0;
@@ -24,6 +30,7 @@ namespace XS.DataStructure.String
                 {
                     sourceCursor++;
                     i = sourceCursor;
+                    //或者i=i-j+1
                     j = 0;
                 }
             }
@@ -38,11 +45,6 @@ namespace XS.DataStructure.String
             }
 
         }
-
-        public int IndexViaKMP(string source,string pattern)
-        {
-
-        }
-
+ 
     }
 }

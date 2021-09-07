@@ -71,7 +71,7 @@
     <Compile Include="StackByLinkNodeTests.cs" />
     <Compile Include="StackForAffixTests.cs" />
     <Compile Include="StackSharedByArrayTests.cs" />
-    <Compile Include="StringTestTests.cs" />
+    <Compile Include="SubStringTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

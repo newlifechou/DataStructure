@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ADAA9DC8-D4A5-49FD-86A8-27DE4492CE39}</ProjectGuid>
+    <ProjectGuid>{C8125516-919F-45CE-8D34-2A66F0EDEE6E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XS.DataStructure.String</RootNamespace>
-    <AssemblyName>XS.DataStructure.String</AssemblyName>
+    <RootNamespace>DataStructure.Tree</RootNamespace>
+    <AssemblyName>DataStructure.Tree</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,10 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IString.cs" />
-    <Compile Include="KMPSolution.cs" />
+    <Compile Include="TreeDefination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SubString.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
