@@ -80,5 +80,17 @@ namespace AlgorithmBasic.Tests
 
         }
 
+        [TestMethod()]
+        public void FibonacciTest()
+        {
+            SimpleAlgorithm simple = new SimpleAlgorithm();
+            Assert.AreEqual(1, simple.Fibonacci(0));
+            Assert.AreEqual(1, simple.Fibonacci(1));
+            Assert.AreEqual(2, simple.Fibonacci(2));
+            Assert.AreEqual(3, simple.Fibonacci(3));
+            Assert.AreEqual(5, simple.Fibonacci(4));
+            Assert.AreEqual(8, simple.Fibonacci(5));
+            Assert.AreEqual(13, simple.Fibonacci(6));
+        }
     }
 }

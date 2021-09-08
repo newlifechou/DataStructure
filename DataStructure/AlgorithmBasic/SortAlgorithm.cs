@@ -152,7 +152,7 @@ namespace AlgorithmBasic
                 {
                     temp = numbers[i];
                     int j = i - step;
-                    while (j>=0 && numbers[j]>temp)
+                    while (j >= 0 && numbers[j] > temp)
                     {
                         numbers[j + step] = numbers[j];
                         j -= step;
@@ -165,16 +165,144 @@ namespace AlgorithmBasic
 
         /// <summary>
         /// 归并排序
+        /// 非递归
         /// 分治法 Divide and Conquer
         /// 比较占用空间
+        /// 递归思想
         /// </summary>
         /// <param name="numbers"></param>
         public void MergeSort(int[] numbers)
         {
+            int len = numbers.Length;
+            if (len < 2) return;
+            int gap = 1;
+
+            while (gap<=len)
+            {
+                int i = 0;
+                int left = i * (gap * 2);
+                while (left<len)
+                {
+                    int right = (i + 1) * (gap * 2) - 1;
+                    if (right >= len)
+                    {
+                        right = len - 1;
+                    }
+
+                    MergeSort(numbers, left, right);
+                    i++;
+                    left = i * (gap * 2);
+                }
+                gap *= 2;
+            }
+
+        }
+        /// <summary>
+        /// 分别对left to mid,mid+1 to right两组进行排序
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        private void MergeSort(int[] numbers, int left, int right)
+        {
+            if (right <= left) return;
+            int mid = left + (right - left) / 2;
+
+            int[] nums = new int[right - left + 1];
+            int index = 0;
+            int i = left;
+            int j = mid + 1;
+            while (i <= mid && j <= right)
+            {
+                if (numbers[i] <= numbers[j])
+                {
+                    nums[index++] = numbers[i++];
+                }
+                else
+                {
+                    nums[index++] = numbers[j++];
+                }
+            }
+
+            while (i <= mid)
+            {
+                nums[index++] = numbers[i++];
+            }
+
+            while (j <= right)
+            {
+                nums[index++] = numbers[j++];
+            }
+
+            for (int n = 0; n < index; n++)
+            {
+                numbers[left + n] = nums[n];
+            }
+        }
+
+        /// <summary>
+        /// 归并
+        /// 递归
+        /// 递归方式就是不断拆分数组，直到数组长度为1，然后不断归并
+        /// </summary>
+        /// <param name="numbers"></param>
+        public void MergeSortRecursive(int[] numbers)
+        {
+            int len = numbers.Length;
+            if (len < 2) return;
+            MergeSortRecursive(numbers, 0, len - 1);
+        }
+        private void MergeSortRecursive(int[] numbers, int left, int right)
+        {
+            if (left >= right) return;
+            int mid = left + (right - left) / 2;
+            //int mid = (left + right) / 2;
+            MergeSortRecursive(numbers, left, mid);
+            MergeSortRecursive(numbers, mid + 1, right);
+
+            int[] nums = new int[right - left + 1];
+            int index = 0;
+            int i = left;
+            int j = mid + 1;
+            while (i <= mid && j <= right)
+            {
+                if (numbers[i] <= numbers[j])
+                {
+                    nums[index++] = numbers[i++];
+                }
+                else
+                {
+                    nums[index++] = numbers[j++];
+                }
+            }
+
+            while (i <= mid)
+            {
+                nums[index++] = numbers[i++];
+            }
+
+            while (j <= right)
+            {
+                nums[index++] = numbers[j++];
+            }
+
+            for (int n = 0; n < index; n++)
+            {
+                numbers[left + n] = nums[n];
+            }
 
         }
 
 
+        /// <summary>
+        /// 归并
+        /// 自然归并
+        /// </summary>
+        /// <param name="numbers"></param>
+        public void MergeSortNatural(int[] numbers)
+        {
+
+        }
 
     }
 }

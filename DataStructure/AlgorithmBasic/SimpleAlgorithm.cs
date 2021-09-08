@@ -51,6 +51,26 @@ namespace AlgorithmBasic
             return max;
         }
 
+        /// <summary>
+        /// 斐波那契数
+        /// 递归
+        /// Fibonacci
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public int Fibonacci(int number)
+        {
+            if (number <= 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return Fibonacci(number - 1) + Fibonacci(number - 2);
+            }
+        }
+
+
 
     }
 }

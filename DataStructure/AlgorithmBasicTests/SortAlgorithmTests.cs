@@ -153,5 +153,49 @@ namespace AlgorithmBasic.Tests
 
             Assert.IsTrue(isSame);
         }
+
+        [TestMethod()]
+        public void MergeSortTest()
+        {
+            int number_count = 125;
+            SimpleData data = new SimpleData();
+            var array = data.GetOrderedArray(number_count);
+            data.Shuffle(array, array.Length);
+
+            SortAlgorithm algorithm = new SortAlgorithm();
+            algorithm.MergeSort(array);
+
+
+            bool isSame = true;
+
+            for (int i = 0; i < number_count; i++)
+            {
+                isSame = isSame && (i == array[i]);
+            }
+
+            Assert.IsTrue(isSame);
+        }
+
+        [TestMethod()]
+        public void MergeSortRecursiveTest()
+        {
+            int number_count = 125;
+            SimpleData data = new SimpleData();
+            var array = data.GetOrderedArray(number_count);
+            data.Shuffle(array, array.Length);
+
+            SortAlgorithm algorithm = new SortAlgorithm();
+            algorithm.MergeSortRecursive(array);
+
+
+            bool isSame = true;
+
+            for (int i = 0; i < number_count; i++)
+            {
+                isSame = isSame && (i == array[i]);
+            }
+
+            Assert.IsTrue(isSame);
+        }
     }
 }
