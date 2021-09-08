@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XS.Search", "XS.Search\XS.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmRun", "AlgorithmRun\AlgorithmRun.csproj", "{13369025-0517-4EBF-923E-D08AD5DF63DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XS.LeetCode", "XS.LeetCode\XS.LeetCode.csproj", "{120018CF-2119-4F4E-9750-711286F4B60C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XS.LeetCodeTests", "XS.LeetCodeTests\XS.LeetCodeTests.csproj", "{D0DB0D73-D46A-4C3A-BC0A-D29C5F4CC7C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{13369025-0517-4EBF-923E-D08AD5DF63DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13369025-0517-4EBF-923E-D08AD5DF63DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13369025-0517-4EBF-923E-D08AD5DF63DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{120018CF-2119-4F4E-9750-711286F4B60C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{120018CF-2119-4F4E-9750-711286F4B60C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{120018CF-2119-4F4E-9750-711286F4B60C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{120018CF-2119-4F4E-9750-711286F4B60C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0DB0D73-D46A-4C3A-BC0A-D29C5F4CC7C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0DB0D73-D46A-4C3A-BC0A-D29C5F4CC7C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0DB0D73-D46A-4C3A-BC0A-D29C5F4CC7C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0DB0D73-D46A-4C3A-BC0A-D29C5F4CC7C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
