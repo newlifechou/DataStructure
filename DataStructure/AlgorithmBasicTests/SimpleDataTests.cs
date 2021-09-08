@@ -23,5 +23,23 @@ namespace AlgorithmBasic.Tests
                 Assert.AreEqual(i, result[i]);
             }
         }
+
+        [TestMethod()]
+        public void SuffleTest()
+        {
+            SimpleData simpleData = new SimpleData();
+            var result1 = simpleData.GetOrderedArray(10);
+            var result2 = simpleData.GetOrderedArray(10);
+            simpleData.Shuffle(result2);
+
+            bool isSame = true;
+            for (int i = 0; i < 10; i++)
+            {
+                isSame = isSame && (result1[i] == result2[2]);
+            }
+
+            Assert.IsFalse(isSame);
+
+        }
     }
 }

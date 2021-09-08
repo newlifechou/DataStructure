@@ -16,11 +16,11 @@ namespace AlgorithmBasic
             return numbers.ToArray();
         }
 
-        public int[] Suffle(int[] numbers)
+        public void Shuffle(int[] numbers,int shuffleCount=10)
         {
             Random r = new Random();
 
-            for (int i = 0; i < numbers.Length; i++)
+            for (int i = 0; i < shuffleCount; i++)
             {
                 int pos_1 = r.Next(0, numbers.Length);
                 int pos_2 = r.Next(0, numbers.Length);
@@ -32,7 +32,6 @@ namespace AlgorithmBasic
                 }
             }
 
-            return numbers;
         }
 
 

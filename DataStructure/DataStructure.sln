@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XS.DataStructure.Graph", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XS.Search", "XS.Search\XS.Search.csproj", "{1E5358A9-0B07-4DA3-B1DB-3173A2BC7E36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmRun", "AlgorithmRun\AlgorithmRun.csproj", "{13369025-0517-4EBF-923E-D08AD5DF63DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{1E5358A9-0B07-4DA3-B1DB-3173A2BC7E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E5358A9-0B07-4DA3-B1DB-3173A2BC7E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E5358A9-0B07-4DA3-B1DB-3173A2BC7E36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13369025-0517-4EBF-923E-D08AD5DF63DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13369025-0517-4EBF-923E-D08AD5DF63DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13369025-0517-4EBF-923E-D08AD5DF63DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13369025-0517-4EBF-923E-D08AD5DF63DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
