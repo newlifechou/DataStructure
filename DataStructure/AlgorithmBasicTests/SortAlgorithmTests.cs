@@ -181,11 +181,31 @@ namespace AlgorithmBasic.Tests
         {
             int number_count = 125;
             SimpleData data = new SimpleData();
-            var array = data.GetOrderedArray(number_count);
-            data.Shuffle(array, array.Length);
+            var array = data.GetShuffleArray(number_count);
 
             SortAlgorithm algorithm = new SortAlgorithm();
             algorithm.MergeSortRecursive(array);
+
+
+            bool isSame = true;
+
+            for (int i = 0; i < number_count; i++)
+            {
+                isSame = isSame && (i == array[i]);
+            }
+
+            Assert.IsTrue(isSame);
+        }
+
+        [TestMethod()]
+        public void QuickSortTest()
+        {
+            int number_count = 125;
+            SimpleData data = new SimpleData();
+            var array = data.GetShuffleArray(number_count);
+
+            SortAlgorithm algorithm = new SortAlgorithm();
+            algorithm.QuickSort(array);
 
 
             bool isSame = true;

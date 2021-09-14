@@ -5,6 +5,11 @@ namespace AlgorithmBasic
 {
     public class SimpleData
     {
+        /// <summary>
+        /// 获取排序好的数组
+        /// </summary>
+        /// <param name="length"></param>
+        /// <returns></returns>
         public int[] GetOrderedArray(int length=10)
         {
             List<int> numbers = new List<int>();
@@ -16,6 +21,11 @@ namespace AlgorithmBasic
             return numbers.ToArray();
         }
 
+        /// <summary>
+        /// 洗牌
+        /// </summary>
+        /// <param name="numbers"></param>
+        /// <param name="shuffleCount"></param>
         public void Shuffle(int[] numbers,int shuffleCount=10)
         {
             Random r = new Random();
@@ -33,7 +43,17 @@ namespace AlgorithmBasic
             }
 
         }
-
+        /// <summary>
+        /// 获取随机数组
+        /// </summary>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        public int[] GetShuffleArray(int length = 10)
+        {
+            var result = GetOrderedArray(length);
+            Shuffle(result,result.Length);
+            return result;
+        }
 
     }
 }

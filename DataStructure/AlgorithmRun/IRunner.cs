@@ -9,6 +9,7 @@ namespace AlgorithmRun
     public interface IRunner
     {
         void Run1();
+        void Run5();
         void Run2();
         void Run3();
         void Run4();

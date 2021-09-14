@@ -177,11 +177,11 @@ namespace AlgorithmBasic
             if (len < 2) return;
             int gap = 1;
 
-            while (gap<=len)
+            while (gap <= len)
             {
                 int i = 0;
                 int left = i * (gap * 2);
-                while (left<len)
+                while (left < len)
                 {
                     int right = (i + 1) * (gap * 2) - 1;
                     if (right >= len)
@@ -303,6 +303,62 @@ namespace AlgorithmBasic
         {
 
         }
+
+
+        /// <summary>
+        /// 快速排序
+        /// 递归思想
+        /// D&C思想
+        /// </summary>
+        /// <param name="numbers"></param>
+        public void QuickSort(int[] numbers)
+        {
+            QuickSort(numbers, 0, numbers.Length-1);
+        }
+
+        private void QuickSort(int[] numbers, int l, int r)
+        {
+            if (l >= r) return;
+
+            int i = l;
+            int j = r;
+            int pivot = numbers[l];
+
+            while (i < j)
+            {
+                //from right to left find smaller
+                while (i < j && numbers[j] >= pivot)
+                {
+                    j--;
+                }
+
+                if (i < j)
+                {
+                    numbers[i] = numbers[j];
+                    i++;
+                }
+
+                //from left to right find bigger
+                while (i < j && numbers[i] < pivot)
+                {
+                    i++;
+                }
+
+                if (i < j)
+                {
+                    numbers[j] = numbers[i];
+                    j--;
+                }
+
+               
+            }
+
+
+            numbers[i] = pivot;
+            QuickSort(numbers, l, i - 1);
+            QuickSort(numbers, i + 1, r);
+        }
+
 
     }
 }

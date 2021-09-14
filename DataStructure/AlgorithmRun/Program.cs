@@ -8,7 +8,8 @@ namespace AlgorithmRun
         {
             IRunner run = new SimpleDataRunner();
 
-            run.Run1();
+            run.Run4();
+            run.Run5();
 
 
             Console.Read();
