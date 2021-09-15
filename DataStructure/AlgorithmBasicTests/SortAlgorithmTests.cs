@@ -27,21 +27,15 @@ namespace AlgorithmBasic.Tests
         {
             int number_count = 100;
             SimpleData data = new SimpleData();
-            var array = data.GetOrderedArray(number_count);
-            data.Shuffle(array, array.Length);
+            var array = data.GetShuffleArray(number_count);
 
             SortAlgorithm algorithm = new SortAlgorithm();
             algorithm.BubbleSort(array);
 
-
-            bool isSame = true;
-
             for (int i = 0; i < number_count; i++)
             {
-                isSame = isSame && (i == array[i]);
+                Assert.AreEqual(i, array[i]);
             }
-
-            Assert.IsTrue(isSame);
         }
 
         [TestMethod()]
@@ -49,21 +43,16 @@ namespace AlgorithmBasic.Tests
         {
             int number_count = 125;
             SimpleData data = new SimpleData();
-            var array = data.GetOrderedArray(number_count);
-            data.Shuffle(array, array.Length);
+            var array = data.GetShuffleArray(number_count);
 
             SortAlgorithm algorithm = new SortAlgorithm();
             algorithm.BubbleSort(array);
 
 
-            bool isSame = true;
-
             for (int i = 0; i < number_count; i++)
             {
-                isSame = isSame && (i == array[i]);
+                Assert.AreEqual(i, array[i]);
             }
-
-            Assert.IsTrue(isSame);
         }
 
         [TestMethod()]
@@ -71,21 +60,16 @@ namespace AlgorithmBasic.Tests
         {
             int number_count = 125;
             SimpleData data = new SimpleData();
-            var array = data.GetOrderedArray(number_count);
-            data.Shuffle(array, array.Length);
+            var array = data.GetShuffleArray(number_count);
 
             SortAlgorithm algorithm = new SortAlgorithm();
             algorithm.BubbleSort2(array);
 
 
-            bool isSame = true;
-
             for (int i = 0; i < number_count; i++)
             {
-                isSame = isSame && (i == array[i]);
+                Assert.AreEqual(i, array[i]);
             }
-
-            Assert.IsTrue(isSame);
         }
 
         [TestMethod()]
@@ -93,21 +77,16 @@ namespace AlgorithmBasic.Tests
         {
             int number_count = 125;
             SimpleData data = new SimpleData();
-            var array = data.GetOrderedArray(number_count);
-            data.Shuffle(array, array.Length);
+            var array = data.GetShuffleArray(number_count);
 
             SortAlgorithm algorithm = new SortAlgorithm();
             algorithm.SelectionSort(array);
 
 
-            bool isSame = true;
-
             for (int i = 0; i < number_count; i++)
             {
-                isSame = isSame && (i == array[i]);
+                Assert.AreEqual(i, array[i]);
             }
-
-            Assert.IsTrue(isSame);
         }
 
         [TestMethod()]
@@ -115,21 +94,16 @@ namespace AlgorithmBasic.Tests
         {
             int number_count = 125;
             SimpleData data = new SimpleData();
-            var array = data.GetOrderedArray(number_count);
-            data.Shuffle(array, array.Length);
+            var array = data.GetShuffleArray(number_count);
 
             SortAlgorithm algorithm = new SortAlgorithm();
             algorithm.InsertionSort(array);
 
 
-            bool isSame = true;
-
             for (int i = 0; i < number_count; i++)
             {
-                isSame = isSame && (i == array[i]);
+                Assert.AreEqual(i, array[i]);
             }
-
-            Assert.IsTrue(isSame);
         }
 
         [TestMethod()]
@@ -137,43 +111,33 @@ namespace AlgorithmBasic.Tests
         {
             int number_count = 125;
             SimpleData data = new SimpleData();
-            var array = data.GetOrderedArray(number_count);
-            data.Shuffle(array, array.Length);
+            var array = data.GetShuffleArray(number_count);
 
             SortAlgorithm algorithm = new SortAlgorithm();
             algorithm.ShellSort(array);
 
 
-            bool isSame = true;
-
             for (int i = 0; i < number_count; i++)
             {
-                isSame = isSame && (i == array[i]);
+                Assert.AreEqual(i, array[i]);
             }
-
-            Assert.IsTrue(isSame);
         }
 
         [TestMethod()]
         public void MergeSortTest()
         {
-            int number_count = 125;
+            int number_count = 10;
             SimpleData data = new SimpleData();
-            var array = data.GetOrderedArray(number_count);
-            data.Shuffle(array, array.Length);
+            var array = data.GetShuffleArray(number_count);
 
             SortAlgorithm algorithm = new SortAlgorithm();
             algorithm.MergeSort(array);
 
 
-            bool isSame = true;
-
             for (int i = 0; i < number_count; i++)
             {
-                isSame = isSame && (i == array[i]);
+                Assert.AreEqual(i, array[i]);
             }
-
-            Assert.IsTrue(isSame);
         }
 
         [TestMethod()]
@@ -187,20 +151,16 @@ namespace AlgorithmBasic.Tests
             algorithm.MergeSortRecursive(array);
 
 
-            bool isSame = true;
-
             for (int i = 0; i < number_count; i++)
             {
-                isSame = isSame && (i == array[i]);
+                Assert.AreEqual(i, array[i]);
             }
-
-            Assert.IsTrue(isSame);
         }
 
         [TestMethod()]
-        public void QuickSortTest()
+        public void QuickSortTest1()
         {
-            int number_count = 125;
+            int number_count = 250;
             SimpleData data = new SimpleData();
             var array = data.GetShuffleArray(number_count);
 
@@ -208,14 +168,42 @@ namespace AlgorithmBasic.Tests
             algorithm.QuickSort(array);
 
 
-            bool isSame = true;
+            for (int i = 0; i < number_count; i++)
+            {
+                Assert.AreEqual(i, array[i]);
+            }
+        }
+
+        [TestMethod()]
+        public void QuickSortTest2()
+        {
+            int number_count = 125;
+            SimpleData data = new SimpleData();
+            var array = data.GetShuffleArray(number_count);
+
+            SortAlgorithm algorithm = new SortAlgorithm();
+            algorithm.QuickSort(array);
+            ;
 
             for (int i = 0; i < number_count; i++)
             {
-                isSame = isSame && (i == array[i]);
+                Assert.AreEqual(i, array[i]);
             }
+        }
 
-            Assert.IsTrue(isSame);
+        [TestMethod()]
+        public void MergeArrayTest()
+        {
+            SortAlgorithm simple = new SortAlgorithm();
+            int[] a = { 1, 4, 7 };
+            int[] b = { 2, 3, 5, 6, 8 };
+            int[] c = new int[a.Length + b.Length];
+            simple.MergeArray(a, a.Length, b, b.Length, c);
+
+            for (int i = 0; i < c.Length; i++)
+            {
+                Assert.AreEqual(i + 1, c[i]);
+            }
         }
     }
 }

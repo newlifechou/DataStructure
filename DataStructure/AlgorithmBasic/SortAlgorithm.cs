@@ -173,29 +173,7 @@ namespace AlgorithmBasic
         /// <param name="numbers"></param>
         public void MergeSort(int[] numbers)
         {
-            int len = numbers.Length;
-            if (len < 2) return;
-            int gap = 1;
-
-            while (gap <= len)
-            {
-                int i = 0;
-                int left = i * (gap * 2);
-                while (left < len)
-                {
-                    int right = (i + 1) * (gap * 2) - 1;
-                    if (right >= len)
-                    {
-                        right = len - 1;
-                    }
-
-                    MergeSort(numbers, left, right);
-                    i++;
-                    left = i * (gap * 2);
-                }
-                gap *= 2;
-            }
-
+            MergeSort(numbers, 0, numbers.Length - 1);
         }
         /// <summary>
         /// 分别对left to mid,mid+1 to right两组进行排序
@@ -203,41 +181,89 @@ namespace AlgorithmBasic
         /// <param name="number"></param>
         /// <param name="left"></param>
         /// <param name="right"></param>
-        private void MergeSort(int[] numbers, int left, int right)
+        private void MergeSort(int[] numbers, int l, int r)
         {
-            if (right <= left) return;
-            int mid = left + (right - left) / 2;
+            if (l >= r) return;
+            int mid = l + (r - l) / 2;
+            MergeSort(numbers, l, mid);//left
+            MergeSort(numbers, mid + 1, r);//right
 
-            int[] nums = new int[right - left + 1];
-            int index = 0;
-            int i = left;
+            Merge(numbers, l, mid, r);
+        }
+
+        private void Merge(int[] numbers, int l, int mid, int r)
+        {
+            int[] temp = new int[numbers.Length];
+
+            int i = l;
+            int m = mid;
             int j = mid + 1;
-            while (i <= mid && j <= right)
+            int n = r;
+            int k = 0;
+
+            while (i <= m && j <= n)
             {
                 if (numbers[i] <= numbers[j])
                 {
-                    nums[index++] = numbers[i++];
+                    temp[k++] = numbers[i++];
                 }
                 else
                 {
-                    nums[index++] = numbers[j++];
+                    temp[k++] = numbers[j++];
                 }
             }
 
-            while (i <= mid)
+            while (i <= m)
             {
-                nums[index++] = numbers[i++];
+                temp[k++] = numbers[i++];
             }
 
-            while (j <= right)
+            while (j <= n)
             {
-                nums[index++] = numbers[j++];
+                temp[k++] = numbers[j++];
             }
 
-            for (int n = 0; n < index; n++)
+            for (int ii = 0; ii < k; ii++)
             {
-                numbers[left + n] = nums[n];
+                numbers[l + ii] = temp[ii];
             }
+
+        }
+
+        /// <summary>
+        /// 归并基础
+        /// 将有序数组a，b合并为c
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="n"></param>
+        /// <param name="b"></param>
+        /// <param name="m"></param>
+        /// <param name="c"></param>
+        public void MergeArray(int[] a, int n, int[] b, int m, int[] c)
+        {
+            int i, j, k;
+            i = j = k = 0;
+            while (i < n && j < m)
+            {
+                if (a[i] < b[j])
+                {
+                    c[k++] = a[i++];
+                }
+                else
+                {
+                    c[k++] = b[j++];
+                }
+            }
+
+            while (i < n)
+            {
+                c[k++] = a[i++];
+            }
+            while (j < m)
+            {
+                c[k++] = b[j++];
+            }
+
         }
 
         /// <summary>
@@ -248,23 +274,21 @@ namespace AlgorithmBasic
         /// <param name="numbers"></param>
         public void MergeSortRecursive(int[] numbers)
         {
-            int len = numbers.Length;
-            if (len < 2) return;
-            MergeSortRecursive(numbers, 0, len - 1);
+            MergeSortRecursive(numbers, 0, numbers.Length - 1);
         }
-        private void MergeSortRecursive(int[] numbers, int left, int right)
+        private void MergeSortRecursive(int[] numbers, int l, int r)
         {
-            if (left >= right) return;
-            int mid = left + (right - left) / 2;
+            if (l >= r) return;
+            int mid = l + (r - l) / 2;//这样写不容易溢出
             //int mid = (left + right) / 2;
-            MergeSortRecursive(numbers, left, mid);
-            MergeSortRecursive(numbers, mid + 1, right);
+            MergeSortRecursive(numbers, l, mid);
+            MergeSortRecursive(numbers, mid + 1, r);
 
-            int[] nums = new int[right - left + 1];
+            int[] nums = new int[r - l + 1];
             int index = 0;
-            int i = left;
+            int i = l;
             int j = mid + 1;
-            while (i <= mid && j <= right)
+            while (i <= mid && j <= r)
             {
                 if (numbers[i] <= numbers[j])
                 {
@@ -281,14 +305,14 @@ namespace AlgorithmBasic
                 nums[index++] = numbers[i++];
             }
 
-            while (j <= right)
+            while (j <= r)
             {
                 nums[index++] = numbers[j++];
             }
 
             for (int n = 0; n < index; n++)
             {
-                numbers[left + n] = nums[n];
+                numbers[l + n] = nums[n];
             }
 
         }
@@ -309,11 +333,13 @@ namespace AlgorithmBasic
         /// 快速排序
         /// 递归思想
         /// D&C思想
+        /// 选取一个pivot值，从左右同时开始扫描，小于排左边，大于排右边
+        /// 不断递归
         /// </summary>
         /// <param name="numbers"></param>
         public void QuickSort(int[] numbers)
         {
-            QuickSort(numbers, 0, numbers.Length-1);
+            QuickSort(numbers, 0, numbers.Length - 1);
         }
 
         private void QuickSort(int[] numbers, int l, int r)
@@ -322,7 +348,7 @@ namespace AlgorithmBasic
 
             int i = l;
             int j = r;
-            int pivot = numbers[l];
+            int pivot = numbers[l];//选取第一个作为pivot，也可以随机选
 
             while (i < j)
             {
@@ -350,9 +376,7 @@ namespace AlgorithmBasic
                     j--;
                 }
 
-               
             }
-
 
             numbers[i] = pivot;
             QuickSort(numbers, l, i - 1);

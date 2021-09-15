@@ -15,6 +15,36 @@ namespace AlgorithmRun
             Console.WriteLine(simple.Fish_Count1());
         }
 
+        public void Run10()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Run11()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Run12()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Run13()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Run14()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Run15()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Run2()
         {
             SimpleData simple = new SimpleData();
@@ -43,6 +73,26 @@ namespace AlgorithmRun
         {
             SimpleAlgorithmVoid simple = new SimpleAlgorithmVoid();
             simple.Solve2();
+        }
+
+        public void Run6()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Run7()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Run8()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Run9()
+        {
+            throw new NotImplementedException();
         }
     }
 }
