@@ -41,5 +41,22 @@ namespace AlgorithmBasic.Tests
             Assert.IsFalse(isSame);
 
         }
+
+        [TestMethod()]
+        public void ThrowExceptionTest1()
+        {
+            SimpleData data = new SimpleData();
+            var ex1 = Assert.ThrowsException<Exception>(() => data.ThrowException(true));
+            Assert.AreEqual(ex1.Message, "YES");
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentNullException),"")]
+        public void ThrowExceptionTest2()
+        {
+            SimpleData data = new SimpleData();
+            data.ThrowException(false);
+        }
+
     }
 }

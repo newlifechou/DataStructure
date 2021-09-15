@@ -5,6 +5,26 @@ namespace AlgorithmBasic
 {
     public class SimpleData
     {
+
+        /// <summary>
+        /// 回文字符串
+        /// </summary>
+        public string PalindromicSubString { get; set; } 
+            = "mnbjabcdecbkjklipql";
+
+        public void ThrowException(bool isYes)
+        {
+            if (isYes)
+            {
+                throw new Exception(message: "YES");
+            }
+            else
+            {
+                throw new ArgumentNullException();
+            }
+        }
+
+
         /// <summary>
         /// 获取排序好的数组
         /// </summary>
