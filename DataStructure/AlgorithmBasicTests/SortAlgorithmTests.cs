@@ -205,5 +205,22 @@ namespace AlgorithmBasic.Tests
                 Assert.AreEqual(i + 1, c[i]);
             }
         }
+
+        [TestMethod()]
+        public void BucketSortTest()
+        {
+            int number_count = 125;
+            SimpleData data = new SimpleData();
+            var array = data.GetShuffleArray(number_count, start_from: 10);
+
+            SortAlgorithm algorithm = new SortAlgorithm();
+            algorithm.SimpleEditionBucketSort(array);
+            ;
+
+            for (int i = 0; i < number_count; i++)
+            {
+                Assert.AreEqual(i + 10, array[i]);
+            }
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace AlgorithmRun
         public void Run2()
         {
             SimpleData simple = new SimpleData();
-            var data = simple.GetOrderedArray();
+            var data = simple.GetOrderedArray(10);
             simple.Shuffle(data);
             foreach (var item in data)
             {

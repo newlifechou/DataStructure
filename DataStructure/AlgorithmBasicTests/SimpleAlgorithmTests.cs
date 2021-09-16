@@ -257,5 +257,20 @@ namespace AlgorithmBasic.Tests
             int result = simple.DiuFanTu_Age();
             Assert.AreEqual(84, result);
         }
+
+        [TestMethod()]
+        public void IsPalindromicSubStringTest()
+        {
+            SimpleAlgorithm simple = new SimpleAlgorithm();
+            string s1 = "hellolleh";
+            bool result1 = simple.IsPalindromicSubString(s1);
+            Assert.IsTrue(result1);
+
+            string s2 = "helloworld";
+            bool result2 = simple.IsPalindromicSubString(s2);
+            Assert.IsFalse(result2);
+
+
+        }
     }
 }

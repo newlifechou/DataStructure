@@ -384,5 +384,67 @@ namespace AlgorithmBasic
         }
 
 
+        /// <summary>
+        /// 桶排序
+        /// 映射函数是否高效
+        /// </summary>
+        public void SimpleEditionBucketSort(int[] nums)
+        {
+            //create bucket and initialize
+            int buckets_length = nums.Max() + 1;
+            int[] buckets = new int[buckets_length];
+            for (int i = 0; i < buckets.Length; i++)
+            {
+                buckets[i] = 0;
+            }
+
+            //fill the bucket
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int index = nums[i];
+                buckets[index] += 1;
+            }
+
+            //output the bucket from small to big
+            int k = 0;
+            for (int i = 0; i < buckets.Length; i++)
+            {
+                if (buckets[i] != 0)
+                {
+                    for (int j = 0; j < buckets[i]; j++)
+                    {
+                        nums[k] = i;
+                        k++;
+                    }
+                }
+            }
+
+            //from big to small
+            //int k = 0;
+            //for (int i = buckets.Length; i >= 0; i--)
+            //{
+            //    if (buckets[i] != 0)
+            //    {
+            //        for (int j = 0; j < buckets[i]; j++)
+            //        {
+            //            nums[k] = i;
+            //            k++;
+            //        }
+            //    }
+            //}
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

@@ -9,6 +9,45 @@ namespace AlgorithmBasic
     public class SimpleAlgorithm
     {
         /// <summary>
+        /// 判断是否是回文
+        /// 利用栈来判断
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public bool IsPalindromicSubString(string s)
+        {
+            int len = s.Length;
+            int mid = len / 2 - 1;
+            Stack<int> stack = new Stack<int>();
+            for (int i = 0; i <= mid; i++)
+            {
+                stack.Push(s[i]);
+            }
+
+            int next;
+            if (len % 2 == 0)
+            {
+                next = mid + 1;
+            }
+            else
+            {
+                next = mid + 2;
+            }
+
+            for (int i = next; i < len; i++)
+            {
+                if (s[i] != stack.Pop())
+                {
+                    break;
+                }
+            }
+
+            return stack.Count == 0;
+
+        }
+
+
+        /// <summary>
         /// 计算最小公倍数
         /// </summary>
         /// <param name="a"></param>
