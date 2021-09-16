@@ -6,11 +6,9 @@ namespace AlgorithmRun
     {
         static void Main(string[] args)
         {
-            IRunner run = new SimpleDataRunner();
+            var run = new SimpleDataRunner();
 
-            run.Run4();
-            run.Run5();
-
+            run.Run();
 
             Console.Read();
         }

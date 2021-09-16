@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AlgorithmRun
 {
-    class SimpleDataRunner : IRunner
+    class SimpleDataRunner
     {
         public void Run1()
         {
@@ -17,12 +17,15 @@ namespace AlgorithmRun
 
         public void Run10()
         {
-            throw new NotImplementedException();
+            SimpleAlgorithm algorithm = new SimpleAlgorithm();
+            algorithm.NumberPlusMatch();
+
         }
 
-        public void Run11()
+        public void Run()
         {
-            throw new NotImplementedException();
+            SimpleAlgorithm algorithm = new SimpleAlgorithm();
+            algorithm.BombMan();
         }
 
         public void Run12()

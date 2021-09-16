@@ -272,5 +272,29 @@ namespace AlgorithmBasic.Tests
 
 
         }
+
+        [TestMethod()]
+        public void PokerGameTest()
+        {
+            SimpleAlgorithm simple = new SimpleAlgorithm();
+            int[] a = { 6, 3, 5, 4, 7 };
+            int[] b = { 1, 4, 3, 5, 8 };
+            bool result = simple.PokerGame(a, b);
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod()]
+        public void RemoveRepeatTest()
+        {
+            SimpleAlgorithm simple = new SimpleAlgorithm();
+
+            int[] a = { 1, 2, 7, 4, 3, 4, 5, 3, 5, 7, 8, 9 };
+            int[] expected = { 1, 2, 3, 4, 5, 7, 8, 9 };
+            var result = simple.RemoveRepeat(a);
+            for (int i = 0; i < result.Length; i++)
+            {
+                Assert.AreEqual(expected[i], result[i]);
+            }
+        }
     }
 }

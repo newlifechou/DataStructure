@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,272 @@ namespace AlgorithmBasic
 {
     public class SimpleAlgorithm
     {
+
+        /// <summary>
+        /// 炸弹人
+        /// 墙壁不能被炸
+        /// 只能空地放炸弹
+        /// 炸弹威力十字形无限
+        /// </summary>
+        public void BombMan()
+        {
+            char[][] map = {
+                new char[]{'#','#','#','#','#','#','#','#','#','#','#','#'},
+                new char[]{'#','G','G','.','G', 'G','#','#', '#', '#', '#', '#' },
+                new char[]{'#','G', 'G', 'G', '.', 'G','#','#', '#', '#', '#', '#' },
+                new char[]{'#','G', 'G','#','#', 'G', 'G', '.', '#', '#', '#', '#' },
+                new char[]{'#', 'G','#', 'G', 'G', '.', 'G', '#', '#', '#', '#', '#' },
+                new char[]{'#','#','#', 'G', 'G', '.', 'G', 'G', '#', '#', '#', '#' },
+                new char[]{'#','#','#', 'G', 'G', '.', 'G', 'G', '#', '#', '#', '#' },
+                new char[]{'#','#','#','#','#','#','#','#','#','#','#','#'}
+            };
+
+            for (int i = 0; i < map.Length; i++)
+            {
+                for (int j = 0; j < map[i].Length; j++)
+                {
+                    Console.Write(map[i][j]);
+                }
+                Console.WriteLine();
+            }
+
+            int sum = 0;
+            int x, y;
+            for (int i = 0; i < map.Length; i++)
+            {
+                for (int j = 0; j < map[i].Length; j++)
+                {
+                    sum = 0;
+                    if (map[i][j] == '.')
+                    {
+                        sum = 0;
+
+                        //up
+                        x = i;
+                        y = j;
+                        while (map[x][y] != '#')
+                        {
+                            if (map[x][y] == 'G')
+                            {
+                                sum++;
+                            }
+                            x--;
+                        }
+
+                        //down
+                        x = i;
+                        y = j;
+                        while (map[x][y] != '#')
+                        {
+                            if (map[x][y] == 'G')
+                            {
+                                sum++;
+                            }
+                            x++;
+                        }
+
+                        //left
+                        x = i;
+                        y = j;
+                        while (map[x][y] != '#')
+                        {
+                            if (map[x][y] == 'G')
+                            {
+                                sum++;
+                            }
+                            y--;
+                        }
+
+                        //right
+                        x = i;
+                        y = j;
+                        while (map[x][y] != '#')
+                        {
+                            if (map[x][y] == 'G')
+                            {
+                                sum++;
+                            }
+                            y++;
+                        }
+                    }
+                    if (sum != 0)
+                    {
+                        Console.WriteLine($"{i},{j}={sum}");
+                    }
+                }
+            }
+
+        }
+
+        public int[] RemoveRepeat(int[] nums)
+        {
+            int len = nums.Max() + 1;
+            int[] temp = new int[len];
+            for (int i = 0; i < temp.Length; i++)
+            {
+                temp[i] = 0;
+            }
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                temp[nums[i]] += 1;
+            }
+
+            List<int> result = new List<int>();
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if (temp[i] > 0)
+                {
+                    result.Add(i);
+                }
+            }
+            return result.ToArray();
+        }
+
+        /// <summary>
+        /// ab+cd=ef
+        /// </summary>
+        public void NumberPlusMatch()
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            for (int a = 1; a < 10; a++)
+            {
+                for (int b = 1; b < 10; b++)
+                {
+                    for (int c = 1; c < 10; c++)
+                    {
+                        for (int d = 1; d < 10; d++)
+                        {
+                            for (int e = 1; e < 10; e++)
+                            {
+                                for (int f = 1; f < 10; f++)
+                                {
+                                    if (a != b && b != c && c != d && d != e
+                                        && e != f && a != c && a != d
+                                        && a != e && a != f)
+                                    {
+                                        if (a * 10 + b + c * 10 + d == e * 10 + f)
+                                        {
+                                            Console.WriteLine($"{a}{b}+{c}{d}={e}{f}");
+                                        }
+                                    }
+
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            sw.Stop();
+            Console.WriteLine(sw.ElapsedMilliseconds);
+
+        }
+
+
+        /// <summary>
+        /// 纸牌游戏，小猫钓鱼
+        /// 两个人每人有一副牌，一次摆放在桌子上，当刚放下的一张牌和之前的某一张一样的时候，这两张一样的牌包括中间的纸牌都可以被收走，放到这个人的队尾
+        /// 两个队列一个栈
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public bool PokerGame(int[] a, int[] b)
+        {
+            Queue<int> aa = new Queue<int>();
+            Queue<int> bb = new Queue<int>();
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                aa.Enqueue(a[i]);
+            }
+
+            for (int i = 0; i < b.Length; i++)
+            {
+                bb.Enqueue(b[i]);
+            }
+
+            Stack<int> gamepool = new Stack<int>();
+
+
+            int temp = 0;
+            bool isAwin = false, isBwin = false;
+            while (aa.Count > 0 && bb.Count > 0)
+            {
+                //a turn
+                temp = aa.Dequeue();
+                isAwin = false;
+                foreach (var item in gamepool)
+                {
+                    if (item == temp)
+                    {
+                        isAwin = true;
+                        break;
+                    }
+                }
+
+                if (isAwin)
+                {
+                    aa.Enqueue(temp);
+
+                    int pop = 0;
+                    //注意这里得用do while
+                    do
+                    {
+                        pop = gamepool.Pop();
+                        aa.Enqueue(pop);
+                    } while (pop != temp);
+
+                    isAwin = false;
+                }
+                else
+                {
+                    gamepool.Push(temp);
+                }
+                temp = 0;
+
+                //b turn
+
+                temp = bb.Dequeue();
+                isBwin = false;
+                foreach (var item in gamepool)
+                {
+                    if (item == temp)
+                    {
+                        isBwin = true;
+                        break;
+                    }
+                }
+
+                if (isBwin)
+                {
+                    bb.Enqueue(temp);
+
+                    int pop = 0;
+                    do
+                    {
+                        pop = gamepool.Pop();
+                        bb.Enqueue(pop);
+                    } while (pop != temp);
+
+                    isBwin = false;
+                }
+                else
+                {
+                    gamepool.Push(temp);
+                }
+                temp = 0;
+
+            }
+
+
+            return aa.Count > 0;//true = a win,false=a lose.
+        }
+
+
+
         /// <summary>
         /// 判断是否是回文
         /// 利用栈来判断
